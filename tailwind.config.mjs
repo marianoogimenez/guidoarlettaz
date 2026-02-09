@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'teal-primary': '#0D9488',
-        'teal-dark': '#0B7A70',
+        'teal-primary': '#0B7A70',
+        'teal-dark': '#087066',
         'teal-light': '#14B8A6',
-        'coral': '#F97316',
-        'coral-dark': '#EA580C',
+        'coral': '#C75A0D',
+        'coral-dark': '#A64C0B',
         'mint': '#F0FDFA',
         'warm': '#FFF7ED',
         'slate-dark': '#0F172A',

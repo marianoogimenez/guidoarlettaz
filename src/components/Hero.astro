@@ -1,5 +1,5 @@
 ---
-// Hero.astro — Hero section with gradient, badge, CTA buttons, and trust indicators
+// Hero.astro — Hero section with gradient, badge, CTA buttons, trust indicators, and SVG illustration
 ---
 
 <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-mint via-white to-warm pt-20">
@@ -9,67 +9,129 @@
     <div class="absolute bottom-20 right-40 w-56 h-56 rounded-full bg-coral/15 blur-3xl"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-32 relative z-10">
-    <div class="lg:max-w-[60%]">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-teal-primary/10 text-teal-primary font-medium text-sm px-4 py-1.5 rounded-full mb-6">
-        <span class="w-2 h-2 bg-teal-primary rounded-full animate-pulse"></span>
-        Turnos disponibles esta semana
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-32 relative z-10 w-full">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+      <!-- Left column: content -->
+      <div>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-teal-primary/10 text-teal-primary font-medium text-sm px-4 py-1.5 rounded-full mb-6">
+          <span class="w-2 h-2 bg-teal-primary rounded-full animate-pulse"></span>
+          Turnos disponibles esta semana
+        </div>
+
+        <!-- Heading -->
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-slate-900 leading-[1.1] mb-6">
+          La sonrisa que
+          <span class="text-teal-primary">siempre</span>
+          quisiste
+        </h1>
+
+        <!-- Paragraph -->
+        <p class="text-lg sm:text-xl text-slate-600 max-w-xl mb-8 leading-relaxed">
+          Odontología integral con tecnología de punta y un trato cercano que te hace sentir como en casa. Turnos sin apuros, en pleno corazón de Buenos Aires.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a
+            href="#contacto"
+            data-nav-link
+            class="bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-coral/25 active:scale-[0.98] text-center"
+          >
+            Pedir Turno
+          </a>
+          <a
+            href="#tratamientos"
+            data-nav-link
+            class="border-2 border-slate-300 hover:border-teal-primary text-slate-700 hover:text-teal-primary font-semibold px-8 py-4 rounded-full text-lg transition-all text-center"
+          >
+            Ver Tratamientos
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="flex flex-wrap gap-6 text-sm text-slate-500">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+            Atención personalizada
+          </span>
+          <span class="text-slate-300">|</span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5.846a2.25 2.25 0 00-1.35-2.064 18.676 18.676 0 00-9.3 0A2.25 2.25 0 007 5.846V14.5" />
+            </svg>
+            Tecnología de punta
+          </span>
+          <span class="text-slate-300">|</span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            En el corazón de CABA
+          </span>
+        </div>
       </div>
 
-      <!-- Heading -->
-      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6">
-        La sonrisa que
-        <span class="text-teal-primary">siempre</span>
-        quisiste
-      </h1>
+      <!-- Right column: SVG illustration (desktop only) -->
+      <div class="hidden lg:flex items-center justify-center">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-md" aria-hidden="true">
+          <!-- Background organic shapes -->
+          <ellipse cx="250" cy="250" rx="195" ry="195" class="fill-teal-primary/[0.06]" />
+          <ellipse cx="255" cy="245" rx="155" ry="155" class="fill-teal-primary/[0.04]" />
 
-      <!-- Paragraph -->
-      <p class="text-lg sm:text-xl text-slate-600 max-w-xl mb-8 leading-relaxed">
-        Odontología integral con tecnología de punta y un trato cercano que te hace sentir como en casa. Turnos sin apuros, en pleno corazón de Buenos Aires.
-      </p>
+          <!-- Tooth shape (outlined molar with roots) -->
+          <g transform="translate(157, 115) scale(2.05)">
+            <!-- White fill background -->
+            <path d="M6.34,5.95c3.14-3.02,7.01-4.76,11.33-5.37c4.41-0.62,9.29-0.05,14.32,1.55c2.76,0.88,4.91,1.62,6.67,2.23 c3.33,1.15,5.12,1.78,6.74,1.78c1.95,0.01,4.3-0.84,9.39-2.66c1.58-0.57,3.31-1.19,3.48-1.25c4.4-1.55,8.68-2.32,12.62-2.23 c3.98,0.09,7.62,1.03,10.7,2.89c4.38,2.65,6.8,6.2,8.05,10.23c1.2,3.84,1.3,8.04,1.07,12.29c-0.33,6.13-1.39,12.13-3.19,17.99 c-1.72,5.61-4.11,11.09-7.16,16.45c1.55,9.74,1.98,18.5,1.71,26.24c-0.27,7.99-1.26,14.88-2.51,20.63 c-1.36,6.3-3.32,11.17-5.49,13.69c-1.24,1.44-2.63,2.26-4.13,2.36c-1.59,0.1-3.09-0.59-4.42-2.19c-1.86-2.24-3.55-6.67-4.81-13.78 c-0.35-1.97-0.55-4.14-0.64-5.08l-0.03-0.27l-0.06-0.56c-1.38-14-2.74-27.78-15.03-27.92c-5.86,1.34-8.95,4.1-10.67,8.18 c-1.88,4.47-2.33,10.72-2.85,18.36l0,0.03c-0.07,1.06-0.31,4.63-0.74,7.23c-1.19,7.21-2.9,11.7-4.8,13.95 c-1.33,1.56-2.82,2.25-4.41,2.16c-1.5-0.08-2.9-0.88-4.14-2.3c-2.19-2.5-4.14-7.35-5.39-13.73c-1.03-5.27-1.82-12.26-2.22-20.83 c-0.35-7.56-0.39-16.36-0.02-26.3c-2.11-4.83-3.99-9.69-5.52-14.6c-1.58-5.08-2.79-10.23-3.49-15.48 c-0.58-4.39-1.02-8.41-0.43-12.26C0.9,13.31,2.61,9.55,6.34,5.95z" fill="white" />
+            <!-- Teal outline -->
+            <path d="M18.29,5.06c-3.39,0.48-6.4,1.82-8.81,4.15 c-2.9,2.8-4.23,5.71-4.71,8.82c-0.51,3.32-0.11,6.98,0.43,11c0.66,4.94,1.81,9.84,3.33,14.72c1.52,4.89,3.42,9.74,5.55,14.6 c0.13,0.3,0.2,0.64,0.19,0.99c-0.39,10.02-0.35,18.88,0.01,26.47c0.38,8.29,1.15,15.05,2.15,20.16c1.1,5.61,2.67,9.71,4.34,11.62 c0.42,0.48,0.76,0.75,0.99,0.76c0.14,0.01,0.37-0.17,0.71-0.56c1.41-1.66,2.75-5.42,3.79-11.75c0.39-2.35,0.62-5.79,0.69-6.81 l0-0.03c0.54-8.05,1.02-14.63,3.2-19.82c2.33-5.52,6.41-9.22,14.09-10.91l0,0.01c0.15-0.03,0.31-0.05,0.47-0.05 c16.65-0.07,18.22,15.84,19.81,32l0.05,0.56l0,0l0,0.01l0.03,0.28c0.08,0.84,0.26,2.78,0.61,4.73c1.11,6.3,2.44,10.02,3.82,11.68 c0.32,0.39,0.54,0.57,0.66,0.56c0.22-0.01,0.55-0.29,0.97-0.78c1.68-1.96,3.29-6.12,4.49-11.71c1.2-5.56,2.16-12.18,2.42-19.82 c0.26-7.67-0.18-16.38-1.78-26.12c-0.1-0.51-0.02-1.06,0.27-1.55c3.08-5.29,5.46-10.69,7.16-16.21c1.69-5.51,2.69-11.14,2.99-16.89 c0.2-3.79,0.13-7.49-0.88-10.71c-0.94-3.03-2.76-5.7-6.07-7.69c-2.39-1.45-5.27-2.18-8.45-2.25c-3.39-0.07-7.13,0.61-11.03,1.98 c-2.39,0.85-2.96,1.05-3.46,1.23c-5.6,2.01-8.19,2.93-10.91,2.93c-2.39-0.01-4.43-0.72-8.22-2.03c-1.73-0.6-3.85-1.34-6.57-2.2 C26.23,5.04,22.03,4.54,18.29,5.06z" fill="#0B7A70" />
+          </g>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 mb-12">
-        <a
-          href="#contacto"
-          data-nav-link
-          class="bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-coral/25 active:scale-[0.98] text-center"
-        >
-          Pedir Turno
-        </a>
-        <a
-          href="#tratamientos"
-          data-nav-link
-          class="border-2 border-slate-300 hover:border-teal-primary text-slate-700 hover:text-teal-primary font-semibold px-8 py-4 rounded-full text-lg transition-all text-center"
-        >
-          Ver Tratamientos
-        </a>
-      </div>
+          <!-- Shine highlight on crown -->
+          <ellipse cx="225" cy="165" rx="16" ry="30" class="fill-white/40" transform="rotate(-12 225 165)" />
 
-      <!-- Trust indicators -->
-      <div class="flex flex-wrap gap-6 text-sm text-slate-500">
-        <span class="flex items-center gap-1.5">
-          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-          </svg>
-          Atención personalizada
-        </span>
-        <span class="text-slate-300">|</span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5.846a2.25 2.25 0 00-1.35-2.064 18.676 18.676 0 00-9.3 0A2.25 2.25 0 007 5.846V14.5" />
-          </svg>
-          Tecnología de punta
-        </span>
-        <span class="text-slate-300">|</span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-          </svg>
-          En el corazón de CABA
-        </span>
+          <!-- Sparkle top-right -->
+          <g transform="translate(375, 120)">
+            <line x1="0" y1="-16" x2="0" y2="16" stroke="#C75A0D" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="-16" y1="0" x2="16" y2="0" stroke="#C75A0D" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="-10" y1="-10" x2="10" y2="10" stroke="#C75A0D" stroke-width="2" stroke-linecap="round" />
+            <line x1="10" y1="-10" x2="-10" y2="10" stroke="#C75A0D" stroke-width="2" stroke-linecap="round" />
+          </g>
+
+          <!-- Sparkle bottom-left -->
+          <g transform="translate(115, 380)">
+            <line x1="0" y1="-11" x2="0" y2="11" stroke="#0B7A70" stroke-width="2" stroke-linecap="round" />
+            <line x1="-11" y1="0" x2="11" y2="0" stroke="#0B7A70" stroke-width="2" stroke-linecap="round" />
+            <line x1="-7" y1="-7" x2="7" y2="7" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="7" y1="-7" x2="-7" y2="7" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" />
+          </g>
+
+          <!-- Small sparkle top-left -->
+          <g transform="translate(140, 150)">
+            <line x1="0" y1="-8" x2="0" y2="8" stroke="#C75A0D" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="-8" y1="0" x2="8" y2="0" stroke="#C75A0D" stroke-width="1.5" stroke-linecap="round" />
+          </g>
+
+          <!-- Dental mirror -->
+          <g transform="translate(370, 330)">
+            <line x1="0" y1="5" x2="-28" y2="48" stroke="#0B7A70" stroke-width="3" stroke-linecap="round" />
+            <ellipse cx="0" cy="0" rx="19" ry="17" stroke="#0B7A70" stroke-width="2.5" fill="white" />
+            <ellipse cx="-2" cy="-2" rx="11" ry="9" class="fill-teal-primary/[0.06]" />
+          </g>
+
+          <!-- Floating dots -->
+          <circle cx="108" cy="215" r="6" class="fill-coral/25" />
+          <circle cx="400" cy="250" r="4.5" class="fill-teal-primary/25" />
+          <circle cx="155" cy="95" r="5" class="fill-teal-primary/20" />
+          <circle cx="360" cy="410" r="7" class="fill-coral/20" />
+          <circle cx="310" cy="95" r="3.5" class="fill-coral/20" />
+
+          <!-- Curved smile line -->
+          <path d="M160 300 Q210 340 260 310 Q310 280 360 310" stroke="#0B7A70" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.2" />
+        </svg>
       </div>
     </div>
   </div>

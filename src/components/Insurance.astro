@@ -1,0 +1,59 @@
+---
+const obrasSociales = ["OSDE", "Swiss Medical", "Galeno", "Medifé", "OMINT", "Accord Salud"];
+const mediosDePago = ["Efectivo", "Tarjetas de crédito y débito", "Transferencia bancaria", "Mercado Pago", "Planes de financiación"];
+---
+
+<section class="py-20 lg:py-28 bg-mint">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">Obras Sociales y Pagos</p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        Facilitamos tu acceso
+      </h2>
+      <p class="text-slate-500 text-lg">
+        Trabajamos con las principales obras sociales y ofrecemos múltiples medios de pago.
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Obras sociales -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-800 mb-6">Obras Sociales</h3>
+        <div class="flex flex-wrap gap-3">
+          {obrasSociales.map((os) => (
+            <span class="bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-4 py-2 rounded-lg">
+              {os}
+            </span>
+          ))}
+        </div>
+        <p class="text-slate-400 text-sm mt-4">y más — consultanos por la tuya</p>
+      </div>
+      <!-- Medios de pago -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-800 mb-6">Medios de Pago</h3>
+        <ul class="space-y-3 text-slate-600">
+          {mediosDePago.map((m) => (
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-teal-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              {m}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <!-- Primera consulta -->
+      <div class="bg-teal-primary rounded-2xl p-8 text-white">
+        <h3 class="text-xl font-bold mb-4">Primera Consulta</h3>
+        <p class="text-teal-100 mb-4">Incluye evaluación completa y radiografías digitales.</p>
+        <div class="text-4xl font-bold mb-2">Consultar</div>
+        <p class="text-teal-100 text-sm mb-6">El valor depende de tu obra social</p>
+        <a
+          href="#contacto"
+          class="block w-full bg-white text-teal-primary font-semibold py-3 rounded-full hover:bg-teal-50 transition-colors text-center"
+        >
+          Consultar por tu obra social
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

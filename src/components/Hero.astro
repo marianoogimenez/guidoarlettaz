@@ -1,0 +1,66 @@
+---
+// Hero.astro — Hero section with gradient, badge, CTA buttons, and trust indicators
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-mint via-white to-warm pt-20">
+  <!-- Decorative shapes -->
+  <div class="absolute top-20 right-0 w-[50%] h-full opacity-30">
+    <div class="absolute top-10 right-10 w-72 h-72 rounded-full bg-teal-primary/20 blur-3xl"></div>
+    <div class="absolute bottom-20 right-40 w-56 h-56 rounded-full bg-coral/15 blur-3xl"></div>
+    <div class="absolute top-1/3 right-20 w-40 h-40 rounded-full border-4 border-teal-primary/20"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-32 relative z-10">
+    <div class="lg:max-w-[60%]">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-teal-primary/10 text-teal-primary font-medium text-sm px-4 py-1.5 rounded-full mb-6">
+        <span class="w-2 h-2 bg-teal-primary rounded-full animate-pulse"></span>
+        Turnos disponibles esta semana
+      </div>
+
+      <!-- Heading -->
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6">
+        Tu sonrisa
+        <span class="text-teal-primary">merece</span>
+        lo mejor
+      </h1>
+
+      <!-- Paragraph -->
+      <p class="text-lg sm:text-xl text-slate-600 max-w-xl mb-8 leading-relaxed">
+        Odontologia integral con tecnologia de vanguardia y un trato humano que te hace sentir en confianza. En el corazon de Buenos Aires.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        <a
+          href="#contacto"
+          data-nav-link
+          class="bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-coral/25 active:scale-[0.98] text-center"
+        >
+          Agendar Turno
+        </a>
+        <a
+          href="#tratamientos"
+          data-nav-link
+          class="border-2 border-slate-300 hover:border-teal-primary text-slate-700 hover:text-teal-primary font-semibold px-8 py-4 rounded-full text-lg transition-all text-center"
+        >
+          Ver Tratamientos
+        </a>
+      </div>
+
+      <!-- Trust indicators -->
+      <div class="flex flex-wrap gap-6 text-sm text-slate-500">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <strong class="text-slate-700">4.9</strong> en Google
+        </span>
+        <span class="text-slate-300">|</span>
+        <span><strong class="text-slate-700">18+</strong> anos de experiencia</span>
+        <span class="text-slate-300">|</span>
+        <span><strong class="text-slate-700">3000+</strong> pacientes atendidos</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,16 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-teal-primary: #0D9488;
-  --color-teal-dark: #0B7A70;
-  --color-teal-light: #14B8A6;
-  --color-coral: #F97316;
-  --color-coral-dark: #EA580C;
-  --color-mint: #F0FDFA;
-  --color-warm: #FFF7ED;
-  --color-slate-dark: #0F172A;
-  --color-slate-mid: #1E293B;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
@@ -22,7 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

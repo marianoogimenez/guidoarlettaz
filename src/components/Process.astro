@@ -1,0 +1,36 @@
+---
+const processSteps = [
+  { num: "01", title: "Contacto", desc: "Escribinos por WhatsApp o completá el formulario. Respondemos rápido.", icon: "📞" },
+  { num: "02", title: "Evaluación", desc: "Primera consulta con diagnóstico completo y radiografías digitales.", icon: "🔍" },
+  { num: "03", title: "Plan de Tratamiento", desc: "Te presentamos opciones claras con costos y tiempos estimados.", icon: "📋" },
+  { num: "04", title: "Tu Nueva Sonrisa", desc: "Realizamos el tratamiento con la mejor tecnología disponible.", icon: "😊" },
+];
+---
+
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">Proceso</p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        ¿Cómo funciona?
+      </h2>
+      <p class="text-slate-500 text-lg">
+        En cuatro pasos simples, transformamos tu sonrisa.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-teal-primary/20"></div>
+      {processSteps.map((step) => (
+        <div class="text-center relative">
+          <div class="w-16 h-16 rounded-full bg-teal-primary text-white text-2xl flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-teal-primary/20">
+            {step.icon}
+          </div>
+          <div class="text-teal-primary font-bold text-sm mb-2">{step.num}</div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2">{step.title}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

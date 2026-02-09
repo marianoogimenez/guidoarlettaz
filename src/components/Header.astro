@@ -1,0 +1,146 @@
+---
+// Header.astro — Sticky header with desktop/mobile nav
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#inicio" class="flex items-center gap-2" data-nav-link>
+      <div class="w-10 h-10 rounded-xl bg-teal-primary flex items-center justify-center">
+        <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2c-3 0-5 3-5 7s2 9 3 11a2 2 0 002 0c1-2 3-7 3-11s-2-7-5-7z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="hidden sm:block">
+        <p class="font-semibold text-slate-800 text-sm leading-tight">Dr. Martin Delgado</p>
+        <p class="text-xs text-slate-500">Odontologia Integral</p>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#inicio" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">Inicio</a>
+      <a href="#tratamientos" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">Tratamientos</a>
+      <a href="#nosotros" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">Nosotros</a>
+      <a href="#testimonios" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">Testimonios</a>
+      <a href="#faq" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">FAQ</a>
+      <a href="#contacto" data-nav-link class="text-sm font-medium text-slate-600 hover:text-teal-primary transition-colors">Contacto</a>
+    </nav>
+
+    <!-- Desktop CTA + Phone -->
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="tel:+5491155551234" class="text-sm text-slate-500 hover:text-teal-primary transition-colors">
+        +54 9 11 5555-1234
+      </a>
+      <a href="#contacto" data-nav-link class="bg-coral hover:bg-coral-dark text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors">
+        Pedir Turno
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="hamburger-btn"
+      class="lg:hidden p-2 -mr-2"
+      aria-label="Abrir menu"
+    >
+      <div class="w-6 h-5 relative flex flex-col justify-between">
+        <span id="bar1" class="w-full h-0.5 bg-slate-700 transition-all duration-300"></span>
+        <span id="bar2" class="w-full h-0.5 bg-slate-700 transition-all duration-300"></span>
+        <span id="bar3" class="w-full h-0.5 bg-slate-700 transition-all duration-300"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile Full-Screen Overlay -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 top-20 bg-white z-40 flex-col items-center justify-center gap-8 hidden"
+  >
+    <a href="#inicio" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">Inicio</a>
+    <a href="#tratamientos" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">Tratamientos</a>
+    <a href="#nosotros" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">Nosotros</a>
+    <a href="#testimonios" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">Testimonios</a>
+    <a href="#faq" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">FAQ</a>
+    <a href="#contacto" data-nav-link class="text-2xl font-semibold text-slate-700 hover:text-teal-primary transition-colors">Contacto</a>
+    <a href="#contacto" data-nav-link class="mt-4 bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-3 rounded-full text-lg transition-colors">
+      Pedir Turno
+    </a>
+    <a href="tel:+5491155551234" class="text-slate-500 text-lg">
+      +54 9 11 5555-1234
+    </a>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  const hamburger = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  // Scroll detection — toggle header background
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('bg-white/80', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-slate-100');
+      header?.classList.remove('bg-transparent');
+    } else {
+      header?.classList.remove('bg-white/80', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-slate-100');
+      header?.classList.add('bg-transparent');
+    }
+  }, { passive: true });
+
+  // Mobile menu toggle
+  hamburger?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenu?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      hamburger.setAttribute('aria-label', 'Cerrar menu');
+      // Animate hamburger bars
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2');
+    } else {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('flex');
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-label', 'Abrir menu');
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2');
+    }
+  });
+
+  // Smooth scroll for all nav links
+  document.querySelectorAll('[data-nav-link]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = (link as HTMLAnchorElement).getAttribute('href');
+      if (!href) return;
+
+      // Close mobile menu if open
+      if (menuOpen) {
+        menuOpen = false;
+        mobileMenu?.classList.add('hidden');
+        mobileMenu?.classList.remove('flex');
+        document.body.style.overflow = '';
+        hamburger?.setAttribute('aria-label', 'Abrir menu');
+        bar1?.classList.remove('rotate-45', 'translate-y-2');
+        bar2?.classList.remove('opacity-0');
+        bar3?.classList.remove('-rotate-45', '-translate-y-2');
+      }
+
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>

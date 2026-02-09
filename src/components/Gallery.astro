@@ -1,0 +1,44 @@
+---
+const galleryItems = [
+  { treatment: "Blanqueamiento Dental", desc: "Blanqueamiento LED profesional en una sesión" },
+  { treatment: "Carillas de Porcelana", desc: "Diseño de sonrisa completo con carillas" },
+  { treatment: "Implantes Dentales", desc: "Reemplazo de pieza con implante de titanio" },
+];
+---
+
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">Resultados Reales</p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        Antes y Después
+      </h2>
+      <p class="text-slate-500 text-lg">
+        Casos reales de pacientes que transformaron su sonrisa en nuestro consultorio.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {galleryItems.map((item) => (
+        <div class="rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition-shadow">
+          <div class="grid grid-cols-2">
+            <div class="aspect-square bg-slate-200 flex items-center justify-center relative">
+              <span class="text-slate-400 text-sm font-medium">Antes</span>
+              <span class="absolute top-2 left-2 bg-slate-600/80 text-white text-xs px-2 py-0.5 rounded">Antes</span>
+            </div>
+            <div class="aspect-square bg-mint flex items-center justify-center relative">
+              <span class="text-teal-primary text-sm font-medium">Después</span>
+              <span class="absolute top-2 left-2 bg-teal-primary/80 text-white text-xs px-2 py-0.5 rounded">Después</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-slate-800 mb-1">{item.treatment}</h3>
+            <p class="text-slate-500 text-sm">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="text-center text-slate-400 text-sm mt-8 italic">
+      * Imágenes con consentimiento del paciente. Los resultados pueden variar.
+    </p>
+  </div>
+</section>

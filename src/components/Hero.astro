@@ -1,0 +1,77 @@
+---
+// Hero.astro — Hero section with gradient, badge, CTA buttons, and trust indicators
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-mint via-white to-warm pt-20">
+  <!-- Decorative shapes -->
+  <div class="absolute top-20 right-0 w-[50%] h-full opacity-30">
+    <div class="absolute top-10 right-10 w-72 h-72 rounded-full bg-teal-primary/20 blur-3xl"></div>
+    <div class="absolute bottom-20 right-40 w-56 h-56 rounded-full bg-coral/15 blur-3xl"></div>
+    <div class="absolute top-1/3 right-20 w-40 h-40 rounded-full border-4 border-teal-primary/20"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-32 relative z-10">
+    <div class="lg:max-w-[60%]">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-teal-primary/10 text-teal-primary font-medium text-sm px-4 py-1.5 rounded-full mb-6">
+        <span class="w-2 h-2 bg-teal-primary rounded-full animate-pulse"></span>
+        Turnos disponibles esta semana
+      </div>
+
+      <!-- Heading -->
+      <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6">
+        La sonrisa que
+        <span class="text-teal-primary">siempre</span>
+        quisiste
+      </h1>
+
+      <!-- Paragraph -->
+      <p class="text-lg sm:text-xl text-slate-600 max-w-xl mb-8 leading-relaxed">
+        Odontología integral con tecnología de punta y un trato cercano que te hace sentir como en casa. Turnos sin apuros, en pleno corazón de Buenos Aires.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        <a
+          href="#contacto"
+          data-nav-link
+          class="bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-coral/25 active:scale-[0.98] text-center"
+        >
+          Pedir Turno
+        </a>
+        <a
+          href="#tratamientos"
+          data-nav-link
+          class="border-2 border-slate-300 hover:border-teal-primary text-slate-700 hover:text-teal-primary font-semibold px-8 py-4 rounded-full text-lg transition-all text-center"
+        >
+          Ver Tratamientos
+        </a>
+      </div>
+
+      <!-- Trust indicators -->
+      <div class="flex flex-wrap gap-6 text-sm text-slate-500">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          Atención personalizada
+        </span>
+        <span class="text-slate-300">|</span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5.846a2.25 2.25 0 00-1.35-2.064 18.676 18.676 0 00-9.3 0A2.25 2.25 0 007 5.846V14.5" />
+          </svg>
+          Tecnología de punta
+        </span>
+        <span class="text-slate-300">|</span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          En el corazón de CABA
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

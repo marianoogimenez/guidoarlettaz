@@ -1,0 +1,111 @@
+---
+const faqs = [
+  { q: "¿Cómo saco un turno?", a: "Podés sacar turno por WhatsApp al +54 9 11 5555-1234, por teléfono o completando el formulario de contacto en esta página. Respondemos en menos de 2 horas en horario laboral." },
+  { q: "¿Aceptan obra social?", a: "No, trabajamos de forma exclusivamente privada. Esto nos permite dedicarle a cada paciente el tiempo que necesita, con turnos de 45 minutos y materiales premium. Ofrecemos múltiples formas de pago, incluyendo tarjetas, transferencias, Mercado Pago y planes de financiación para que sea accesible." },
+  { q: "¿Cuáles son los medios de pago?", a: "Aceptamos efectivo, tarjetas de crédito y débito, transferencia bancaria y Mercado Pago. También ofrecemos planes de financiación. Consultanos por las opciones disponibles." },
+  { q: "¿Qué debo saber antes de mi primera visita?", a: "Traé tu DNI y, si tenés, estudios previos (radiografías, etc.). La primera consulta incluye evaluación completa y radiografías digitales." },
+  { q: "¿Atienden urgencias dentales?", a: "Sí, atendemos urgencias de lunes a viernes. Llamá al +54 9 11 5555-1234 y te daremos un turno prioritario lo antes posible." },
+  { q: "¿Los tratamientos son dolorosos?", a: "Utilizamos anestesia local de última generación y técnicas mínimamente invasivas. La gran mayoría de los pacientes reportan cero dolor durante los procedimientos." },
+  { q: "¿Cuál es la política de cancelación?", a: "Pedimos avisar con al menos 24 horas de anticipación. Podés reprogramar sin cargo. Dos inasistencias sin aviso pueden afectar la prioridad en la agenda." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<section id="faq" class="py-20 lg:py-28 bg-white">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">Preguntas Frecuentes</p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        ¿Tenés dudas?
+      </h2>
+    </div>
+    <div class="space-y-3">
+      {faqs.map((f) => (
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <button
+            data-faq-button
+            class="w-full flex items-center justify-between p-5 text-left bg-white hover:bg-mint transition-colors"
+            aria-expanded="false"
+          >
+            <span class="font-semibold text-slate-800 pr-4">{f.q}</span>
+            <svg
+              class="w-5 h-5 text-teal-primary shrink-0 transition-transform duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            data-faq-content
+            class="overflow-hidden transition-all duration-300 max-h-0 opacity-0"
+          >
+            <p class="px-5 pb-5 text-slate-600 leading-relaxed">{f.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const buttons = document.querySelectorAll('[data-faq-button]');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const parent = button.parentElement;
+        if (!parent) return;
+        const content = parent.querySelector('[data-faq-content]') as HTMLElement | null;
+        if (!content) return;
+
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        // Close all other FAQ items
+        buttons.forEach((otherButton) => {
+          if (otherButton !== button) {
+            const otherParent = otherButton.parentElement;
+            if (!otherParent) return;
+            const otherContent = otherParent.querySelector('[data-faq-content]') as HTMLElement | null;
+            if (!otherContent) return;
+            otherButton.setAttribute('aria-expanded', 'false');
+            otherContent.style.maxHeight = '0';
+            otherContent.style.opacity = '0';
+            otherContent.classList.add('max-h-0', 'opacity-0');
+            const otherIcon = otherButton.querySelector('svg');
+            if (otherIcon) otherIcon.classList.remove('rotate-180');
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          button.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = '0';
+          content.style.opacity = '0';
+          content.classList.add('max-h-0', 'opacity-0');
+          const icon = button.querySelector('svg');
+          if (icon) icon.classList.remove('rotate-180');
+        } else {
+          button.setAttribute('aria-expanded', 'true');
+          content.classList.remove('max-h-0', 'opacity-0');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          const icon = button.querySelector('svg');
+          if (icon) icon.classList.add('rotate-180');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,87 @@
+---
+const services = [
+  { name: "Implantes", desc: "Reemplazá piezas perdidas con implantes de titanio de última generación." },
+  { name: "Ortodoncia", desc: "Brackets metálicos, estéticos y alineadores invisibles para todas las edades." },
+  { name: "Blanqueamiento", desc: "Sonrisa más blanca en una sola sesión con tecnología LED profesional." },
+  { name: "Odontología General", desc: "Controles, limpiezas y tratamientos preventivos para toda la familia." },
+  { name: "Estética Dental", desc: "Carillas, diseño de sonrisa y restauraciones que se ven naturales." },
+  { name: "Endodoncia", desc: "Tratamiento de conducto indoloro con instrumental rotatorio de última tecnología." },
+];
+---
+
+<section id="tratamientos" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">Tratamientos</p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        Soluciones para cada sonrisa
+      </h2>
+      <p class="text-slate-500 text-lg">
+        Cada tratamiento se planifica a tu medida, con materiales de primera y la tecnología más avanzada.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s) => (
+        <div class="group p-8 rounded-2xl border border-slate-100 bg-white hover:border-teal-primary/30 hover:shadow-xl hover:shadow-teal-primary/5 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-16 h-16 rounded-2xl bg-mint flex items-center justify-center text-teal-primary mb-5 group-hover:bg-teal-primary group-hover:text-white transition-colors duration-300">
+            {s.name === "Implantes" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <rect x="18" y="4" width="12" height="16" rx="3" stroke="currentColor" stroke-width="2.5" />
+                <path d="M20 20h8v4l-1 4h-6l-1-4v-4z" stroke="currentColor" stroke-width="2.5" />
+                <path d="M21 28h6v4h-6z" stroke="currentColor" stroke-width="2" />
+                <path d="M22 32h4v8a2 2 0 01-2 2h0a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="2" />
+              </svg>
+            )}
+            {s.name === "Ortodoncia" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="18" width="36" height="12" rx="6" stroke="currentColor" stroke-width="2.5" />
+                <rect x="14" y="21" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2" />
+                <rect x="28" y="21" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2" />
+                <line x1="20" y1="24" x2="28" y2="24" stroke="currentColor" stroke-width="2" />
+              </svg>
+            )}
+            {s.name === "Blanqueamiento" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6c-6 0-10 6-10 14s4 18 6 22a4 4 0 004 0c2-4 6-14 6-22S30 6 24 6z" stroke="currentColor" stroke-width="2.5" />
+                <path d="M19 20l3 3 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+            {s.name === "Odontología General" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5" />
+                <path d="M24 14v10l7 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            )}
+            {s.name === "Estética Dental" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 4l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2 4-8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" />
+              </svg>
+            )}
+            {s.name === "Endodoncia" && (
+              <svg viewBox="0 0 48 48" fill="none" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6c-6 0-10 6-10 14s4 18 6 22a4 4 0 004 0c2-4 6-14 6-22S30 6 24 6z" stroke="currentColor" stroke-width="2.5" />
+                <line x1="24" y1="14" x2="24" y2="30" stroke="currentColor" stroke-width="2" />
+                <line x1="20" y1="18" x2="24" y2="22" stroke="currentColor" stroke-width="2" />
+                <line x1="28" y1="18" x2="24" y2="22" stroke="currentColor" stroke-width="2" />
+              </svg>
+            )}
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">{s.name}</h3>
+          <p class="text-slate-500 leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a
+        href="#contacto"
+        data-nav-link
+        class="inline-flex items-center gap-2 text-teal-primary hover:text-teal-dark font-semibold transition-colors"
+      >
+        Consultá por tu tratamiento
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

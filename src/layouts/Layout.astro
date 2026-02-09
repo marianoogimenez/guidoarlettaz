@@ -1,0 +1,99 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = "Guido Arlettaz | Odontólogo en CABA | Implantes, Ortodoncia y Estética Dental" } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  name: "Guido Arlettaz Odontología",
+  description:
+    "Consultorio odontológico privado en CABA. Implantes, ortodoncia, blanqueamiento y odontología general.",
+  url: "https://www.guidoarlettaz.com",
+  telephone: "+5491155551234",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Av. Corrientes 1234, Piso 3",
+    addressLocality: "Ciudad Autónoma de Buenos Aires",
+    addressRegion: "CABA",
+    postalCode: "C1043",
+    addressCountry: "AR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -34.6037,
+    longitude: -58.3816,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
+  priceRange: "$$",
+  medicalSpecialty: [
+    "Implantology",
+    "Orthodontics",
+    "CosmeticDentistry",
+    "Endodontics",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Consultorio odontológico privado en Av. Corrientes, CABA. Implantes, ortodoncia, blanqueamiento y estética dental. Atención personalizada. Pedí tu turno."
+    />
+    <meta
+      name="keywords"
+      content="dentista privado CABA, odontólogo Buenos Aires, implantes dentales, ortodoncia, blanqueamiento dental, Guido Arlettaz, odontología privada, estética dental"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.guidoarlettaz.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Guido Arlettaz | Odontología Privada en CABA" />
+    <meta
+      property="og:description"
+      content="Consultorio odontológico privado en CABA. Implantes, ortodoncia, blanqueamiento y estética dental. Atención personalizada."
+    />
+    <meta property="og:url" content="https://www.guidoarlettaz.com" />
+    <meta property="og:site_name" content="Guido Arlettaz Odontología" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Inter (sans) + Playfair Display (serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Global Styles -->
+    <style>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body class="font-sans bg-white text-slate-800 antialiased">
+    <slot />
+  </body>
+</html>

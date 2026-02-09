@@ -23,18 +23,13 @@ const galleryItems = [
   },
 ];
 
-const stats = [
-  { value: "500+", label: "Sonrisas transformadas" },
-  { value: "100%", label: "Dedicación a cada caso" },
-  { value: "98%", label: "Satisfacción de pacientes" },
-];
 ---
 
 <section id="resultados" class="py-20 lg:py-28 bg-white overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-6 gallery-header" data-gallery-animate="header">
+    <div class="text-center max-w-2xl mx-auto mb-14 gallery-header" data-gallery-animate="header">
       <p class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3">
         Resultados Reales
       </p>
@@ -45,19 +40,6 @@ const stats = [
         Casos reales de pacientes que transformaron su sonrisa en nuestro consultorio.
         Desliza para ver el cambio.
       </p>
-    </div>
-
-    <!-- Stats Bar -->
-    <div
-      class="flex flex-wrap justify-center gap-6 sm:gap-10 mb-16 gallery-stats"
-      data-gallery-animate="stats"
-    >
-      {stats.map((stat) => (
-        <div class="flex items-center gap-3 px-5 py-3 rounded-full bg-mint border border-teal-primary/10">
-          <span class="text-teal-primary font-bold text-xl sm:text-2xl font-serif">{stat.value}</span>
-          <span class="text-slate-600 text-sm font-medium">{stat.label}</span>
-        </div>
-      ))}
     </div>
 
     <!-- Gallery Cards Grid -->
@@ -191,11 +173,6 @@ const stats = [
   }
   .gallery-card[data-delay="2"].gallery-visible {
     animation-delay: 300ms;
-  }
-
-  /* Stats bar delay */
-  .gallery-stats.gallery-visible {
-    animation-delay: 200ms;
   }
 
   /* Footer delay */

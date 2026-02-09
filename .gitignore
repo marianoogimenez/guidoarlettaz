@@ -5,3 +5,5 @@ npm-debug.log*
 .env.production
 .DS_Store
 .astro/
+.playwright-mcp/
+*.png

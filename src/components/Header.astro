@@ -44,7 +44,7 @@
     <button
       id="hamburger-btn"
       class="lg:hidden p-2 -mr-2"
-      aria-label="Abrir menu"
+      aria-label="Abrir menú"
     >
       <div class="w-6 h-5 relative flex flex-col justify-between">
         <span id="bar1" class="w-full h-0.5 bg-slate-700 transition-all duration-300"></span>
@@ -102,7 +102,7 @@
       mobileMenu?.classList.remove('hidden');
       mobileMenu?.classList.add('flex');
       document.body.style.overflow = 'hidden';
-      hamburger.setAttribute('aria-label', 'Cerrar menu');
+      hamburger.setAttribute('aria-label', 'Cerrar menú');
       // Animate hamburger bars
       bar1?.classList.add('rotate-45', 'translate-y-2');
       bar2?.classList.add('opacity-0');
@@ -111,7 +111,7 @@
       mobileMenu?.classList.add('hidden');
       mobileMenu?.classList.remove('flex');
       document.body.style.overflow = '';
-      hamburger.setAttribute('aria-label', 'Abrir menu');
+      hamburger.setAttribute('aria-label', 'Abrir menú');
       bar1?.classList.remove('rotate-45', 'translate-y-2');
       bar2?.classList.remove('opacity-0');
       bar3?.classList.remove('-rotate-45', '-translate-y-2');
@@ -131,7 +131,7 @@
         mobileMenu?.classList.add('hidden');
         mobileMenu?.classList.remove('flex');
         document.body.style.overflow = '';
-        hamburger?.setAttribute('aria-label', 'Abrir menu');
+        hamburger?.setAttribute('aria-label', 'Abrir menú');
         bar1?.classList.remove('rotate-45', 'translate-y-2');
         bar2?.classList.remove('opacity-0');
         bar3?.classList.remove('-rotate-45', '-translate-y-2');

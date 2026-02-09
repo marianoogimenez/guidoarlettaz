@@ -20,7 +20,7 @@ const processSteps = [
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
       <!-- Connecting line (desktop) -->
-      <div class="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-teal-primary/20"></div>
+      <div class="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-0 border-t-2 border-dashed border-teal-primary/30"></div>
       {processSteps.map((step) => (
         <div class="text-center relative">
           <div class="w-16 h-16 rounded-full bg-teal-primary text-white text-2xl flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-teal-primary/20">
@@ -45,7 +45,6 @@ const processSteps = [
               </svg>
             )}
           </div>
-          <div class="text-teal-primary font-bold text-sm mb-2">{step.num}</div>
           <h3 class="text-lg font-bold text-slate-800 mb-2">{step.title}</h3>
           <p class="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
         </div>

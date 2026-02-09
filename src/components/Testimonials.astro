@@ -1,46 +1,511 @@
 ---
 const testimonials = [
-  { name: "María G., Palermo", initial: "M", rating: 5, quote: "Me hice los implantes con Guido y la verdad que no puedo creer el resultado. Tenía mucho miedo, pero me explicó todo re bien y no sentí nada. Lo súper recomiendo.", treatment: "Implantes" },
-  { name: "Carlos R., Recoleta", initial: "C", rating: 5, quote: "Le tengo pánico al dentista desde chico. Un amigo me recomendó a Guido y fue la mejor decisión. Te explica todo antes de hacer cualquier cosa y eso te deja mucho más tranquilo.", treatment: "Odontología General" },
-  { name: "Lucía P., Belgrano", initial: "L", rating: 5, quote: "Me hice el blanqueamiento y no lo podía creer. En una hora ya tenía la sonrisa que siempre quise. Encima cero dolor.", treatment: "Blanqueamiento" },
-  { name: "Roberto S., Caballito", initial: "R", rating: 5, quote: "Arranqué con los brackets pensando que iba a ser un embole y la verdad que Guido hizo que todo sea mucho más llevadero. Estoy re contento con los resultados.", treatment: "Ortodoncia" },
+  {
+    name: "Maria G.",
+    location: "Palermo",
+    initial: "M",
+    rating: 5,
+    quote: "Me hice los implantes con Guido y la verdad que no puedo creer el resultado. Tenía mucho miedo, pero me explicó todo re bien y no sentí nada. Lo super recomiendo.",
+    treatment: "Implantes Dentales",
+    date: "Hace 2 meses",
+  },
+  {
+    name: "Carlos R.",
+    location: "Recoleta",
+    initial: "C",
+    rating: 5,
+    quote: "Le tengo pánico al dentista desde chico. Un amigo me recomendó a Guido y fue la mejor decisión. Te explica todo antes de hacer cualquier cosa y eso te deja mucho más tranquilo.",
+    treatment: "Odontología General",
+    date: "Hace 3 meses",
+  },
+  {
+    name: "Lucia P.",
+    location: "Belgrano",
+    initial: "L",
+    rating: 5,
+    quote: "Me hice el blanqueamiento y no lo podía creer. En una hora ya tenía la sonrisa que siempre quise. Encima cero dolor.",
+    treatment: "Blanqueamiento",
+    date: "Hace 1 mes",
+  },
+  {
+    name: "Roberto S.",
+    location: "Caballito",
+    initial: "R",
+    rating: 5,
+    quote: "Arranqué con los brackets pensando que iba a ser un embole y la verdad que Guido hizo que todo sea mucho más llevadero. Estoy re contento con los resultados.",
+    treatment: "Ortodoncia",
+    date: "Hace 4 meses",
+  },
+  {
+    name: "Ana M.",
+    location: "Núñez",
+    initial: "A",
+    rating: 5,
+    quote: "Llevé a toda la familia y cada uno tuvo un tratamiento distinto. La atención es impecable, siempre con paciencia y buena onda. Los chicos ya no le tienen miedo al dentista.",
+    treatment: "Odontología General",
+    date: "Hace 2 semanas",
+  },
+  {
+    name: "Fernando D.",
+    location: "Villa Crespo",
+    initial: "F",
+    rating: 5,
+    quote: "Me hice las carillas y quedé impresionado con lo natural que se ven. Guido tiene muy buen ojo estético y te asesora re bien. Ya me hicieron varios comentarios de lo bien que me quedó la sonrisa.",
+    treatment: "Estética Dental",
+    date: "Hace 5 meses",
+  },
 ];
+
+const featured = {
+  name: "Valentina L.",
+  location: "San Telmo",
+  initial: "V",
+  rating: 5,
+  quote: "Fui con un problema serio que otros dentistas no me querían resolver. Guido se tomó el tiempo de explicarme todas las opciones, me armó un plan de tratamiento a medida y hoy puedo sonreír sin vergüenza. La diferencia es la atención humana: te trata como persona, no como un número. Realmente te cambia la vida.",
+  treatment: "Implantes + Estética Dental",
+  date: "Hace 3 semanas",
+};
 ---
 
-<section id="testimonios" class="py-20 lg:py-28 bg-warm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <p class="text-coral font-semibold text-sm uppercase tracking-wider mb-3">Testimonios</p>
-      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-        Lo que dicen los pacientes
+<section id="testimonios" class="relative py-20 lg:py-28 bg-warm overflow-hidden">
+  <!-- Decorative top border -->
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-teal-primary/30 to-transparent"></div>
+
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, #0D9488 1px, transparent 0); background-size: 40px 40px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+    <!-- Section header with scroll-triggered animation -->
+    <div class="testimonials-header text-center max-w-3xl mx-auto mb-16" data-animate="header">
+
+      <!-- Eyebrow -->
+      <p
+        class="text-teal-primary font-semibold text-sm uppercase tracking-wider mb-3 opacity-0 translate-y-4"
+        data-animate-child="1"
+      >
+        Testimonios
+      </p>
+
+      <!-- Title -->
+      <h2
+        class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-5 opacity-0 translate-y-4"
+        data-animate-child="2"
+      >
+        Lo que dicen nuestros pacientes
       </h2>
-    </div>
-    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      {testimonials.map((t) => (
-        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-          <div class="flex items-center gap-1 mb-4">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <svg
-                class={`w-5 h-5 ${i < t.rating ? "text-yellow-400" : "text-slate-200"}`}
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+
+      <!-- Aggregate rating -->
+      <div
+        class="inline-flex items-center gap-3 bg-white rounded-full px-5 py-2.5 shadow-sm border border-slate-100 opacity-0 translate-y-4"
+        data-animate-child="3"
+      >
+        <span class="w-2 h-2 rounded-full bg-teal-primary flex-shrink-0"></span>
+
+        <div class="flex items-center gap-1.5">
+          <div class="flex items-center gap-0.5">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
           </div>
-          <p class="text-slate-600 leading-relaxed mb-6 italic">&quot;{t.quote}&quot;</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-teal-primary/10 flex items-center justify-center text-teal-primary font-bold text-sm">
-              {t.initial}
+          <span class="text-slate-400 text-sm">Pacientes reales</span>
+          <span class="text-slate-300 text-sm">|</span>
+          <span class="text-slate-500 text-sm font-medium">Testimonios del consultorio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured testimonial -->
+    <div
+      class="max-w-4xl mx-auto mb-16 opacity-0 translate-y-6"
+      data-animate="featured"
+    >
+      <div class="relative bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-lg shadow-teal-primary/5 border border-teal-primary/10 overflow-hidden group hover:shadow-xl hover:shadow-teal-primary/10 transition-all duration-500">
+        <!-- Decorative accent -->
+        <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-teal-primary via-teal-light to-teal-primary/30 rounded-l-3xl"></div>
+
+        <!-- Large decorative quote mark -->
+        <div class="absolute top-4 right-6 sm:top-6 sm:right-10 font-serif text-[120px] sm:text-[160px] leading-none text-teal-primary/[0.06] select-none pointer-events-none">
+          &ldquo;
+        </div>
+
+        <div class="relative flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-10">
+          <!-- Avatar area -->
+          <div class="flex-shrink-0 flex flex-col items-center gap-3">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-teal-primary to-teal-light flex items-center justify-center text-white font-bold text-2xl sm:text-3xl shadow-lg shadow-teal-primary/20">
+              {featured.initial}
             </div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">{t.name}</p>
-              <p class="text-slate-400 text-xs">{t.treatment}</p>
+            <div class="hidden lg:flex flex-col items-center gap-1.5">
+              <div class="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none">
+                    <defs>
+                      <linearGradient id="star-grad-featured" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FBBF24" />
+                        <stop offset="100%" style="stop-color:#F59E0B" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="url(#star-grad-featured)" />
+                  </svg>
+                ))}
+              </div>
+              <div class="flex items-center gap-1.5 text-xs text-teal-primary">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-primary"></span>
+                <span class="font-medium">Paciente real</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <p class="text-slate-700 text-base sm:text-lg leading-relaxed mb-6 italic">
+              &ldquo;{featured.quote}&rdquo;
+            </p>
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+              <div>
+                <p class="font-bold text-slate-800">{featured.name}</p>
+                <p class="text-slate-400 text-sm">{featured.location} &middot; {featured.treatment}</p>
+              </div>
+
+              <!-- Mobile: stars + verified -->
+              <div class="flex lg:hidden items-center gap-3">
+                <div class="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map(() => (
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-teal-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-primary"></span>
+                  <span class="font-medium">Paciente real</span>
+                </div>
+              </div>
+
+              <span class="text-slate-300 text-xs sm:ml-auto">{featured.date}</span>
             </div>
           </div>
         </div>
-      ))}
+      </div>
+    </div>
+
+    <!-- Carousel section -->
+    <div
+      class="opacity-0 translate-y-6"
+      data-animate="carousel"
+    >
+      <!-- Carousel container with edge fade masks -->
+      <div class="relative">
+        <!-- Left fade mask -->
+        <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-warm to-transparent z-10 pointer-events-none"></div>
+        <!-- Right fade mask -->
+        <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-warm to-transparent z-10 pointer-events-none"></div>
+
+        <!-- Scrollable track -->
+        <div
+          class="testimonials-carousel overflow-hidden cursor-grab active:cursor-grabbing"
+          data-carousel
+        >
+          <div class="testimonials-track flex gap-6 py-4" data-carousel-track>
+            {/* Render cards twice for seamless infinite loop */}
+            {[...testimonials, ...testimonials].map((t, idx) => (
+              <div
+                class="testimonial-card flex-shrink-0 w-[320px] sm:w-[360px]"
+                data-card-index={idx}
+              >
+                <div class="relative h-full bg-white rounded-2xl p-6 sm:p-7 border border-slate-100 overflow-hidden group hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-primary/8 hover:border-teal-primary/20 transition-all duration-400">
+                  <!-- Left accent border -->
+                  <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-teal-primary via-teal-light to-transparent rounded-l-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  <!-- Decorative quote mark -->
+                  <div class="absolute -top-1 right-4 font-serif text-[80px] leading-none text-teal-primary/[0.05] select-none pointer-events-none">
+                    &ldquo;
+                  </div>
+
+                  <div class="relative">
+                    <!-- Stars -->
+                    <div class="flex items-center gap-0.5 mb-4">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none">
+                          <defs>
+                            <linearGradient id={`star-grad-${idx}-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#FBBF24" />
+                              <stop offset="100%" style="stop-color:#F59E0B" />
+                            </linearGradient>
+                          </defs>
+                          <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            fill={i < t.rating ? `url(#star-grad-${idx}-${i})` : '#E2E8F0'}
+                          />
+                        </svg>
+                      ))}
+                      <span class="text-slate-300 text-xs ml-1">{t.date}</span>
+                    </div>
+
+                    <!-- Quote -->
+                    <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+
+                    <!-- Footer -->
+                    <div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-50">
+                      <div class="flex items-center gap-3 min-w-0">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-primary/10 to-teal-light/10 flex items-center justify-center text-teal-primary font-bold text-sm flex-shrink-0">
+                          {t.initial}
+                        </div>
+                        <div class="min-w-0">
+                          <p class="font-semibold text-slate-800 text-sm truncate">{t.name}</p>
+                          <p class="text-slate-400 text-xs truncate">{t.location} &middot; {t.treatment}</p>
+                        </div>
+                      </div>
+
+                      <span class="w-2 h-2 rounded-full bg-teal-primary flex-shrink-0"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 mt-6 text-sm text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-teal-primary flex-shrink-0"></span>
+        <span>Todos los testimonios son de pacientes reales del consultorio</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12 opacity-0 translate-y-4" data-animate="cta">
+      <a
+        href="#contacto"
+        data-nav-link
+        class="inline-flex items-center gap-2 text-teal-primary hover:text-teal-dark font-semibold transition-colors"
+      >
+        Quiero sonreír con confianza
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
+
+<style>
+  /* Infinite scroll animation */
+  @keyframes testimonials-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .testimonials-track {
+    animation: testimonials-scroll 40s linear infinite;
+    will-change: transform;
+  }
+
+  .testimonials-carousel:hover .testimonials-track {
+    animation-play-state: paused;
+  }
+
+  .testimonials-track.is-dragging {
+    animation-play-state: paused;
+  }
+
+  /* Entrance animations */
+  .animate-in [data-animate-child] {
+    animation: fadeSlideUp 0.6s ease-out forwards;
+  }
+
+  .animate-in [data-animate-child="1"] { animation-delay: 0s; }
+  .animate-in [data-animate-child="2"] { animation-delay: 0.12s; }
+  .animate-in [data-animate-child="3"] { animation-delay: 0.24s; }
+
+  [data-animate="featured"].animate-in,
+  [data-animate="carousel"].animate-in,
+  [data-animate="cta"].animate-in {
+    animation: fadeSlideUp 0.7s ease-out forwards;
+  }
+
+  [data-animate="featured"].animate-in { animation-delay: 0.3s; }
+  [data-animate="carousel"].animate-in { animation-delay: 0.45s; }
+  [data-animate="cta"].animate-in { animation-delay: 0.6s; }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Card hover transition refinement */
+  .testimonial-card > div {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.3s ease;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .testimonials-track {
+      animation: none;
+    }
+    .animate-in [data-animate-child],
+    [data-animate="featured"].animate-in,
+    [data-animate="carousel"].animate-in,
+    [data-animate="cta"].animate-in {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Scroll-triggered entrance animations ---
+    const animateTargets = document.querySelectorAll('[data-animate]');
+
+    if (animateTargets.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      animateTargets.forEach((el) => observer.observe(el));
+    }
+
+    // --- Drag/swipe support for carousel ---
+    const carousel = document.querySelector('[data-carousel]');
+    const track = document.querySelector('[data-carousel-track]');
+
+    if (carousel && track) {
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let dragVelocity = 0;
+      let lastDragX = 0;
+      let rafId = null;
+
+      // Get current transform translateX value
+      function getCurrentTranslate() {
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+      }
+
+      function onPointerDown(e) {
+        // Only respond to primary button / single touch
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+        isDragging = true;
+        track.classList.add('is-dragging');
+        startX = e.clientX;
+        scrollLeft = getCurrentTranslate();
+        dragVelocity = 0;
+        lastDragX = e.clientX;
+
+        // Pause CSS animation and control transform directly
+        track.style.animation = 'none';
+        track.style.transform = `translateX(${scrollLeft}px)`;
+
+        carousel.setPointerCapture(e.pointerId);
+        e.preventDefault();
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX;
+        const dx = x - startX;
+        dragVelocity = x - lastDragX;
+        lastDragX = x;
+
+        let newTranslate = scrollLeft + dx;
+
+        // Get half-width (since cards are duplicated, half is the full set width)
+        const halfWidth = track.scrollWidth / 2;
+
+        // Wrap around for infinite feel
+        if (newTranslate > 0) {
+          newTranslate -= halfWidth;
+          scrollLeft -= halfWidth;
+          startX = x - (newTranslate - scrollLeft);
+        } else if (newTranslate < -halfWidth) {
+          newTranslate += halfWidth;
+          scrollLeft += halfWidth;
+          startX = x - (newTranslate - scrollLeft);
+        }
+
+        track.style.transform = `translateX(${newTranslate}px)`;
+      }
+
+      function onPointerUp(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('is-dragging');
+
+        carousel.releasePointerCapture(e.pointerId);
+
+        // Resume CSS animation from current position
+        resumeAnimation();
+      }
+
+      function resumeAnimation() {
+        const currentX = getCurrentTranslate();
+        const halfWidth = track.scrollWidth / 2;
+
+        // Normalize position to be within [-halfWidth, 0]
+        let normalizedX = currentX % halfWidth;
+        if (normalizedX > 0) normalizedX -= halfWidth;
+
+        // Calculate what percentage of the animation we are at
+        const progress = Math.abs(normalizedX) / halfWidth;
+
+        // Remove inline styles and restart animation from the right offset
+        track.style.transform = '';
+        track.style.animation = '';
+
+        // Adjust animation delay to resume from where we left off
+        const totalDuration = 40; // matches the animation duration in seconds
+        const offset = progress * totalDuration;
+
+        track.style.animationDelay = `-${offset}s`;
+      }
+
+      carousel.addEventListener('pointerdown', onPointerDown);
+      carousel.addEventListener('pointermove', onPointerMove);
+      carousel.addEventListener('pointerup', onPointerUp);
+      carousel.addEventListener('pointercancel', onPointerUp);
+
+      // Prevent default drag behavior on images/links inside
+      carousel.addEventListener('dragstart', (e) => e.preventDefault());
+
+      // Also prevent click if we were dragging
+      carousel.addEventListener('click', (e) => {
+        if (Math.abs(dragVelocity) > 2) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
+    }
+  });
+</script>

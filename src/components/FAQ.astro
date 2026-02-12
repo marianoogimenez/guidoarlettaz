@@ -52,7 +52,7 @@ const faqSchema = {
             data-faq-content
             class="overflow-hidden transition-all duration-300 max-h-0 opacity-0"
           >
-            <p class="px-5 pb-5 text-slate-600 leading-relaxed">{f.a}</p>
+            <p class="px-5 pt-2 pb-5 text-slate-600 leading-relaxed">{f.a}</p>
           </div>
         </div>
       ))}
@@ -61,51 +61,49 @@ const faqSchema = {
 </section>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const buttons = document.querySelectorAll('[data-faq-button]');
+  const buttons = document.querySelectorAll('[data-faq-button]');
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const parent = button.parentElement;
-        if (!parent) return;
-        const content = parent.querySelector('[data-faq-content]') as HTMLElement | null;
-        if (!content) return;
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const parent = button.parentElement;
+      if (!parent) return;
+      const content = parent.querySelector('[data-faq-content]') as HTMLElement | null;
+      if (!content) return;
 
-        const isOpen = button.getAttribute('aria-expanded') === 'true';
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
 
-        // Close all other FAQ items
-        buttons.forEach((otherButton) => {
-          if (otherButton !== button) {
-            const otherParent = otherButton.parentElement;
-            if (!otherParent) return;
-            const otherContent = otherParent.querySelector('[data-faq-content]') as HTMLElement | null;
-            if (!otherContent) return;
-            otherButton.setAttribute('aria-expanded', 'false');
-            otherContent.style.maxHeight = '0';
-            otherContent.style.opacity = '0';
-            otherContent.classList.add('max-h-0', 'opacity-0');
-            const otherIcon = otherButton.querySelector('svg');
-            if (otherIcon) otherIcon.classList.remove('rotate-180');
-          }
-        });
-
-        // Toggle current item
-        if (isOpen) {
-          button.setAttribute('aria-expanded', 'false');
-          content.style.maxHeight = '0';
-          content.style.opacity = '0';
-          content.classList.add('max-h-0', 'opacity-0');
-          const icon = button.querySelector('svg');
-          if (icon) icon.classList.remove('rotate-180');
-        } else {
-          button.setAttribute('aria-expanded', 'true');
-          content.classList.remove('max-h-0', 'opacity-0');
-          content.style.maxHeight = content.scrollHeight + 'px';
-          content.style.opacity = '1';
-          const icon = button.querySelector('svg');
-          if (icon) icon.classList.add('rotate-180');
+      // Close all other FAQ items
+      buttons.forEach((otherButton) => {
+        if (otherButton !== button) {
+          const otherParent = otherButton.parentElement;
+          if (!otherParent) return;
+          const otherContent = otherParent.querySelector('[data-faq-content]') as HTMLElement | null;
+          if (!otherContent) return;
+          otherButton.setAttribute('aria-expanded', 'false');
+          otherContent.style.maxHeight = '0';
+          otherContent.style.opacity = '0';
+          otherContent.classList.add('max-h-0', 'opacity-0');
+          const otherIcon = otherButton.querySelector('svg');
+          if (otherIcon) otherIcon.classList.remove('rotate-180');
         }
       });
+
+      // Toggle current item
+      if (isOpen) {
+        button.setAttribute('aria-expanded', 'false');
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+        content.classList.add('max-h-0', 'opacity-0');
+        const icon = button.querySelector('svg');
+        if (icon) icon.classList.remove('rotate-180');
+      } else {
+        button.setAttribute('aria-expanded', 'true');
+        content.classList.remove('max-h-0', 'opacity-0');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.opacity = '1';
+        const icon = button.querySelector('svg');
+        if (icon) icon.classList.add('rotate-180');
+      }
     });
   });
 </script>

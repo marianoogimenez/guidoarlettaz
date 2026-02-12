@@ -1,5 +1,6 @@
 ---
 // Hero.astro — Hero section with gradient, badge, CTA buttons, trust indicators, and SVG illustration
+import { HeartHandshake, Monitor, MapPin } from 'lucide-astro';
 ---
 
 <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-mint via-white to-warm pt-20">
@@ -52,24 +53,17 @@
         <!-- Trust indicators -->
         <div class="flex flex-wrap gap-6 text-sm text-slate-500">
           <span class="flex items-center gap-1.5">
-            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-            </svg>
+            <HeartHandshake class="w-5 h-5 text-teal-primary" />
             Atención personalizada
           </span>
           <span class="text-slate-300">|</span>
           <span class="flex items-center gap-1.5">
-            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V5.846a2.25 2.25 0 00-1.35-2.064 18.676 18.676 0 00-9.3 0A2.25 2.25 0 007 5.846V14.5" />
-            </svg>
+            <Monitor class="w-5 h-5 text-teal-primary" />
             Tecnología de punta
           </span>
           <span class="text-slate-300">|</span>
           <span class="flex items-center gap-1.5">
-            <svg class="w-5 h-5 text-teal-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-            </svg>
+            <MapPin class="w-5 h-5 text-teal-primary" />
             En el corazón de CABA
           </span>
         </div>
